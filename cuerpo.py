@@ -5,5 +5,5 @@ logica = logicva.cuerpo()
 img = sudoku
 
 logica.forma()
-cuerpo = logica.ver
+cuerpo = logica.forma
 print (cuerpo)
