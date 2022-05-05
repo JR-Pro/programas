@@ -1,14 +1,13 @@
 #como funcionaria el sudoku
 # colum = columnas, cuad = cuadrante
 import random  
-class cuerpo():
-    
-    def rellenar(tabla, cuad = 1):
+class cuerpo ():
+    def rellenar(self,tabla, cuad = 1):
         filas = len(tabla)
         colum = len(tabla[0])
         disp = [1,2,3,4,5,6,7,8,9]
-        mfilas = rmfilas(tabla,cuad)
-        mcolum = rmcolum(tabla,cuad)
+        mfilas = self.rmfilas(tabla,cuad)
+        mcolum = self.rmcolum(tabla,cuad)
         for i  in mfilas:
             for j in mcolum:
                 long = len(disp)
@@ -27,7 +26,7 @@ class cuerpo():
                   [0,0,0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0,0,0]]
     
-    def valores(tabla):
+    def valores(self,tabla):
         filas = len(tabla)
         colum = len(tabla[0])
         centrar = [[],[],[],[],[],[],[],[],[]]
@@ -39,7 +38,7 @@ class cuerpo():
             for j in range(colum):       
                 tabla[i][j]=int(centrar[i][j])
                 
-    def vertabla(tabla):
+    def vertabla(self,tabla):
         filas=len(tabla)
         colum=len(tabla[0])
         for i in range(filas):
@@ -52,7 +51,7 @@ class cuerpo():
                     print("|")
             if i==8: print("- - - - - - - - - - - - -")
             
-    def C_Ceros(tabla):
+    def C_Ceros(self,tabla):
         filas =len(tabla)
         colum=len(tabla[0])
         ceros=0
@@ -62,7 +61,7 @@ class cuerpo():
                     ceros+=1
         return ceros   
     
-    def rmfilas(tabla,cuad):
+    def rmfilas(self,tabla,cuad):
         if cuad == 1 or cuad == 2 or cuad == 3:
             return [0,1,2]
         elif cuad == 4 or cuad == 5 or cuad == 6:
@@ -70,7 +69,7 @@ class cuerpo():
         elif cuad == 7 or cuad == 8 or cuad == 9:
             return [6,7,8]
 
-    def rmcolum(tabla,cuad):
+    def rmcolum(self,tabla,cuad):
         if cuad == 1 or cuad == 2 or cuad == 3:
             return [0,1,2]
         elif cuad == 4 or cuad == 5 or cuad == 6:
@@ -78,7 +77,7 @@ class cuerpo():
         elif cuad == 7 or cuad == 8 or cuad == 9:
             return [6,7,8]
     
-    def RCuadrante(filas,colum):
+    def RCuadrante(self,filas,colum):
         if filas <=2 and colum<=2:
             return 1
         elif filas <=5 and colum<=2:
@@ -98,7 +97,7 @@ class cuerpo():
         elif filas <=8 and colum<=8:
             return 9
         
-    def RetornaPosiblesVertical(tabla,fila,colum):
+    def RetornaPosiblesVertical(self,tabla,fila,colum):
         disp =[1,2,3,4,5,6,7,8,9]
         filas =len(tabla)
         for i in range(filas):
@@ -108,33 +107,33 @@ class cuerpo():
                     disp.remove(valor) #lo borramos de la lista ya que no disponible
         return disp
    
-    def RetornaPosiblesHorizontal(tabla,fila,colum):
+    def RetornaPosiblesHorizontal(self,tabla,filas,colum):
         disp =[1,2,3,4,5,6,7,8,9]
         colum =len(tabla[0])
         for i in range(colum):
             if i!=colum:
-                valor=tabla[fila][i] #valor que hay asignado
+                valor=tabla[filas][i] #valor que hay asignado
                 if valor in disp: #si el valor que hemos leido esta en la lista
                     disp.remove(valor) #lo borramos de la lista ya que no disponible
         return disp
 
-    def RetornaPosiblesCuadrante(tabla,fila,colum):
+    def RetornaPosiblesCuadrante(self,tabla,filas,colum):
         disp =[1,2,3,4,5,6,7,8,9]
-        cuad = RCuadrante(fila,colum)
-        mfilas = rmfilas(tabla,cuad)
-        mcolum = rmcolumnas(tabla,cuad)
-        valorinicialenpuntoestudio=tabla[fila][colum]
-        tabla[fila][colum]='estudio'
+        cuad = self.RCuadrante(filas,colum)
+        mfilas = self.rmfilas(tabla,cuad)
+        mcolum = self.rmcolum(tabla,cuad)
+        valorinicialenpuntoestudio=tabla[filas][colum]
+        tabla[filas][colum]='estudio'
         for i in mfilas:
             for j in mcolum:
                 if tabla[i][j]!='estudio':
                     valor=tabla[i][j]
                     if valor in disp:
                         disp.remove(valor)
-        tabla[fila][colum]=valorinicialenpuntoestudio #volvemos a poner el valor inicial
+        tabla[filas][colum]=valorinicialenpuntoestudio #volvemos a poner el valor inicial
         return disp
 
-    def R_Invertidos(posibles):
+    def R_Invertidos(self,posibles):
         imposibles=[]
         if not(1 in posibles):
             imposibles.append(1)
@@ -156,13 +155,13 @@ class cuerpo():
             imposibles.append(9)
         return imposibles
 
-    def RetornaTotalPosibles(tabla,fila,columna):
-        lista1 =RetornaPosiblesVertical(tabla,fila,columna)
-        lista2 =RetornaPosiblesHorizontal(tabla,fila,columna)
-        lista3 =RetornaPosiblesCuadrante(tabla,fila,columna)
-        lista1 =RetornaInvertidos(lista1)
-        lista2 =RetornaInvertidos(lista2)
-        lista3 =RetornaInvertidos(lista3)
+    def RetornaTotalPosibles(self,tabla,filas,colum):
+        lista1 =self.RetornaPosiblesVertical(tabla,filas,colum)
+        lista2 =self.RetornaPosiblesHorizontal(tabla,filas,colum)
+        lista3 =self.RetornaPosiblesCuadrante(tabla,filas,colum)
+        lista1 =self.R_Invertidos(lista1)
+        lista2 =self.R_Invertidos(lista2)
+        lista3 =self.R_Invertidos(lista3)
         listatotal=lista1+lista2+lista3
         listaimposibles=[]
         if 1 in listatotal:
@@ -183,141 +182,134 @@ class cuerpo():
             listaimposibles.append(8)   
         if 9 in listatotal:
             listaimposibles.append(9)
-        listaposibles = RetornaInvertidos(listaimposibles)
+        listaposibles = self.R_Invertidos(listaimposibles)
         return listaposibles
 
-    def CompruebaTerminado(tabla):
+    def CompruebaTerminado(self,tabla):
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         for i in range(filas):
             valor=0
-            for j in range(columnas):
+            for j in range(colum):
                 valor+=tabla[i][j]
             print ("La suma de columna=",i,"es de",valor)
-        for j in range(columnas):
+        for j in range(colum):
             valor=0
             for i in range(filas):
                 valor+=tabla[i][j]
             print ("La suma de fila=",i,"es de",valor)
 
-    def RellenaInmediatos(tabla):
+    def RellenaInmediatos(self,tabla):
         actuado = 0
         filas=len(tabla)
         columnas=len(tabla[0])
         for i in range(filas):
             for j in range(columnas):
                 if tabla[i][j]==0:
-                    posibles = RetornaTotalPosibles(tabla,i,j)
+                    posibles = self.RetornaTotalPosibles(tabla,i,j)
                     if len(posibles)==1:
                         tabla[i][j]=posibles[0]
                         actuado=1
         return actuado
 
-    def RetornaUnoDeLaLista(lista):
+    def RetornaUnoDeLaLista(self,lista):
                 longitud = len(lista)
                 return lista[random.randint(0,longitud-1)]
 
-    def RellenaUnaCasillaCon2Posibles(tabla):
+    def RellenaUnaCasillaCon2Posibles(self,tabla):
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         for i in range(filas):
-            for j in range(columnas):
+            for j in range(colum):
                 if tabla[i][j]==0:      #casilla vacia
-                    posibles = RetornaTotalPosibles(tabla,i,j)
+                    posibles = self.RetornaTotalPosibles(tabla,i,j)
                     if len(posibles)==2:
-                        tabla[i][j]=RetornaUnoDeLaLista(posibles)
+                        tabla[i][j]=self.RetornaUnoDeLaLista(posibles)
                         return 1
         return 0
 
-    def RellenaUnaCasillaCon3Posibles(tabla):
+    def RellenaUnaCasillaCon3Posibles(self,tabla):
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         for i in range(filas):
-            for j in range(columnas):
+            for j in range(colum):
                 if tabla[i][j]==0:      #casilla vacia
-                    posibles = RetornaTotalPosibles(tabla,i,j)
+                    posibles = self.RetornaTotalPosibles(tabla,i,j)
                     if len(posibles)==3:
-                        tabla[i][j]=RetornaUnoDeLaLista(posibles)
+                        tabla[i][j]=self.RetornaUnoDeLaLista(posibles)
                         return 1
         return 0
 
-    def RellenaUnaCasillaCon4Posibles(tabla):
+    def RellenaUnaCasillaCon4Posibles(self,tabla):
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         for i in range(filas):
-            for j in range(columnas):
+            for j in range(colum):
                 if tabla[i][j]==0:      #casilla vacia
-                    posibles = RetornaTotalPosibles(tabla,i,j)
+                    posibles = self.RetornaTotalPosibles(tabla,i,j)
                     if len(posibles)==4:
-                        tabla[i][j]=RetornaUnoDeLaLista(posibles)
+                        tabla[i][j]=self.RetornaUnoDeLaLista(posibles)
                         return 1
         return 0
 
-    def RellenaUnaCasillaCon5Posibles(tabla):
+    def RellenaUnaCasillaCon5Posibles(self,tabla):
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         for i in range(filas):
-            for j in range(columnas):
+            for j in range(colum):
                 if tabla[i][j]==0:      #casilla vacia
-                    posibles = RetornaTotalPosibles(tabla,i,j)
+                    posibles = self.RetornaTotalPosibles(tabla,i,j)
                     if len(posibles)==5:
-                        tabla[i][j]=RetornaUnoDeLaLista(posibles)
+                        tabla[i][j]=self.RetornaUnoDeLaLista(posibles)
                         return 1
         return 0
 
-    def RellenaUnaCasillaCon6Posibles(tabla):
+    def RellenaUnaCasillaCon6Posibles(self,tabla):
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         for i in range(filas):
-            for j in range(columnas):
+            for j in range(colum):
                 if tabla[i][j]==0:      #casilla vacia
-                    posibles = RetornaTotalPosibles(tabla,i,j)
+                    posibles = self.RetornaTotalPosibles(tabla,i,j)
                     if len(posibles)==6:
-                        tabla[i][j]=RetornaUnoDeLaLista(posibles)
+                        tabla[i][j]=self.RetornaUnoDeLaLista(posibles)
                         return 1
         return 0
 
-    def RellenaUnaCasillaCon7Posibles(tabla):
+    def RellenaUnaCasillaCon7Posibles(self,tabla):
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         for i in range(filas):
-            for j in range(columnas):
+            for j in range(colum):
                 if tabla[i][j]==0:      #casilla vacia
-                    posibles = RetornaTotalPosibles(tabla,i,j)
+                    posibles = self.RetornaTotalPosibles(tabla,i,j)
                     if len(posibles)==7:
-                        tabla[i][j]=RetornaUnoDeLaLista(posibles)
+                        tabla[i][j]=self.RetornaUnoDeLaLista(posibles)
                         return 1
         return 0
                     
-    def RellenaPosibilidades(tabla):
+    def RellenaPosibilidades(self,tabla):
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         contador=0
-        while CuentaCeros(tabla)!=0 and contador<=200:
+        while self.C_Ceros(tabla)!=0 and contador<=200:
             contador+=1
-            while RellenaInmediatos(tabla)==1:
+            while self.RellenaInmediatos(tabla)==1:
                 print ("rellenada inmediatos")
-                #VisualizaTabla(tabla)
-            if RellenaUnaCasillaCon2Posibles(tabla):
+            if self.RellenaUnaCasillaCon2Posibles(tabla):
                 print ("rellenada 2 posibles")
-                #VisualizaTabla(tabla)
-            elif RellenaUnaCasillaCon3Posibles(tabla):
-                print ("rellenada 3 posibles")
-                #VisualizaTabla(tabla)           
-            elif RellenaUnaCasillaCon4Posibles(tabla):
+            elif self.RellenaUnaCasillaCon3Posibles(tabla):
+                print ("rellenada 3 posibles")  
+            elif self.RellenaUnaCasillaCon4Posibles(tabla):
                 print ("rellenada 4 posibles")
-                #VisualizaTabla(tabla)
-            elif RellenaUnaCasillaCon5Posibles(tabla):
+            elif self.RellenaUnaCasillaCon5Posibles(tabla):
                 print ("rellenada 5 posibles")
-                #VisualizaTabla(tabla)
-            elif RellenaUnaCasillaCon6Posibles(tabla):
+            elif self.RellenaUnaCasillaCon6Posibles(tabla):
                 print ("rellenada 6 posibles")
-                #VisualizaTabla(tabla)
-            elif RellenaUnaCasillaCon7Posibles(tabla):
+            elif self.RellenaUnaCasillaCon7Posibles(tabla):
                 print ("rellenada 7 posibles")
-                #VisualizaTabla(tabla)
 
-    def O_Celdas(tabla,nivel):
+    def O_Celdas(self,tabla,nivel):
         if nivel=="facil":
             maxceros = 35
         elif nivel =="medio":
@@ -327,34 +319,34 @@ class cuerpo():
         cerosinsertados=0
         contador=0
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         while (maxceros>cerosinsertados and contador<1000):
             contador+=1
             fila=random.randint(0,filas-1)
-            columna=random.randint(0,columnas-1)
+            columna=random.randint(0,colum-1)
             if tabla[fila][columna]!=0:
-                if len(RetornaTotalPosibles(tabla,fila,columna))==1:
+                if len(self.RetornaTotalPosibles(tabla,fila,columna))==1:
                     tabla[fila][columna]=0
                     cerosinsertados+=1
         #VisualizaTabla(tabla)
 
-    def SolucionaSudoku(tabla):
-        ceros = CuentaCeros(tabla)
+    def SolucionaSudoku(self,tabla):
+        ceros = self.C_Ceros(tabla)
         bajando = 1
         contador =0
         print("\nEstado inicial de la tabla")
-        VisualizaTabla(tabla)
+        self.vertabla(tabla)
         print ("\nInicialmente hay",ceros,"ceros.")
         while ceros>0 and bajando==1:
-            RellenaInmediatos(tabla)
-            if ceros > CuentaCeros(tabla):
-                ceros = CuentaCeros(tabla)
+            self.RellenaInmediatos(tabla)
+            if ceros > self.C_Ceros(tabla):
+                ceros = self.C_Ceros(tabla)
                 bajando = 1
             else:
                 bajando = 0
             contador+=1
             print ("En",contador,"pasada quedan",ceros,"ceros")
         print("\nEstado final de la tabla")
-        VisualizaTabla(tabla)
+        self.vertabla(tabla)
         if bajando==0:
                 print ("No se pudo solucionar, compruebe que los valores introducidos son correctos")
