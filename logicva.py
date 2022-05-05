@@ -15,4 +15,6 @@ class cuerpo():
                     [0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0]]
         
+    def filas(self):
+        filas = len(self.ver[0])
         

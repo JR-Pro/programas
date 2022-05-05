@@ -1,4 +1,3 @@
-from modulefinder import IMPORT_NAME
 import logicva
 import sudoku
 
