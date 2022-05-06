@@ -33,7 +33,7 @@ class cuerpo ():
         for i  in range(9):
             while len(centrar[i]) != 9:
                 print("Introduzca los valores de la fila", i + 1)
-                centrar[i] = int(input())
+                centrar[i] = input()
         for i in range(filas):
             for j in range(colum):       
                 tabla[i][j]=int(centrar[i][j])
