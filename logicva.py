@@ -77,60 +77,60 @@ class cuerpo ():
         elif cuad == 7 or cuad == 8 or cuad == 9:
             return [6,7,8]
     
-    def RCuadrante(self,filas,colum):
-        if filas <=2 and colum<=2:
+    def RCuadrante(self,filas,columna):
+        if filas <=2 and columna<=2:
             return 1
-        elif filas <=5 and colum<=2:
+        elif filas <=5 and columna<=2:
             return 4
-        elif filas <=8 and colum<=2:
+        elif filas <=8 and columna<=2:
             return 7
-        elif filas <=2 and colum<=5:
+        elif filas <=2 and columna<=5:
             return 2
-        elif filas <=5 and colum<=5:
+        elif filas <=5 and columna<=5:
             return 5
-        elif filas <=8 and colum<=5:
+        elif filas <=8 and columna<=5:
             return 8
-        elif filas <=2 and colum<=8:
+        elif filas <=2 and columna<=8:
             return 3
-        elif filas <=5 and colum<=8:
+        elif filas <=5 and columna<=8:
             return 6
-        elif filas <=8 and colum<=8:
+        elif filas <=8 and columna<=8:
             return 9
         
-    def RetornaPosiblesVertical(self,tabla,fila,colum):
+    def RetornaPosiblesVertical(self,tabla,fila,columna):
         disp =[1,2,3,4,5,6,7,8,9]
         filas =len(tabla)
         for i in range(filas):
             if i!=fila:
-                valor=tabla[i][colum] #valor que hay asignado
+                valor=tabla[i][columna] #valor que hay asignado
                 if valor in disp: #si el valor que hemos leido esta en la lista
                     disp.remove(valor) #lo borramos de la lista ya que no disponible
         return disp
    
-    def RetornaPosiblesHorizontal(self,tabla,filas,colum):
+    def RetornaPosiblesHorizontal(self,tabla,filas,columna):
         disp =[1,2,3,4,5,6,7,8,9]
         colum =len(tabla[0])
         for i in range(colum):
-            if i!=colum:
+            if i!=columna:
                 valor=tabla[filas][i] #valor que hay asignado
                 if valor in disp: #si el valor que hemos leido esta en la lista
                     disp.remove(valor) #lo borramos de la lista ya que no disponible
         return disp
 
-    def RetornaPosiblesCuadrante(self,tabla,filas,colum):
+    def RetornaPosiblesCuadrante(self,tabla,filas,columna):
         disp =[1,2,3,4,5,6,7,8,9]
-        cuad = self.RCuadrante(filas,colum)
+        cuad = self.RCuadrante(filas,columna)
         mfilas = self.rmfilas(tabla,cuad)
         mcolum = self.rmcolum(tabla,cuad)
-        valorinicialenpuntoestudio=tabla[filas][colum]
-        tabla[filas][colum]='estudio'
+        valorinicialenpuntoestudio=tabla[filas][columna]
+        tabla[filas][columna]='estudio'
         for i in mfilas:
             for j in mcolum:
                 if tabla[i][j]!='estudio':
                     valor=tabla[i][j]
                     if valor in disp:
                         disp.remove(valor)
-        tabla[filas][colum]=valorinicialenpuntoestudio #volvemos a poner el valor inicial
+        tabla[filas][columna]=valorinicialenpuntoestudio #volvemos a poner el valor inicial
         return disp
 
     def R_Invertidos(self,posibles):
@@ -202,9 +202,9 @@ class cuerpo ():
     def RellenaInmediatos(self,tabla):
         actuado = 0
         filas=len(tabla)
-        columnas=len(tabla[0])
+        colum=len(tabla[0])
         for i in range(filas):
-            for j in range(columnas):
+            for j in range(colum):
                 if tabla[i][j]==0:
                     posibles = self.RetornaTotalPosibles(tabla,i,j)
                     if len(posibles)==1:

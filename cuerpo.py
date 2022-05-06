@@ -1,9 +1,6 @@
 import logicva
 import sudoku
-
+img = sudoku.sudo()
 logica = logicva.cuerpo()
-img = sudoku
 
-logica.forma()
-cuerpo = logica.forma
-print (cuerpo)
+img.MenuPrincipal()
