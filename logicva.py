@@ -2,7 +2,7 @@
 # colum = columnas, cuad = cuadrante
 import random  
 class cuerpo ():
-    def rellenar(self,tabla, cuad = 1):
+    def rellenar(self,tabla,cuad = 1):
         filas = len(tabla)
         colum = len(tabla[0])
         disp = [1,2,3,4,5,6,7,8,9]
