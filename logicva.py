@@ -32,9 +32,11 @@ class cuerpo ():
         colum = len(tabla[0])
         centrar = [[],[],[],[],[],[],[],[],[]]
         for i  in range(9):
-            while len(centrar[i]) != 9:
+            ban = True
+            while ban != 9:
                 print("Introduzca los valores de la fila", i + 1)
-                centrar[i] = input()
+                centrar[i] = int(input())
+            ban = False
         for i in range(filas):
             for j in range(colum):       
                 tabla[i][j]=int(centrar[i][j])
