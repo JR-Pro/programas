@@ -44,7 +44,7 @@ class sudo():
             deseo = input()
             if deseo.lower()=='s':
                 print ("Nivel de dificultat? (facil=0/medio=1/dificil=2):")
-                dificultad = input()
+                dificultad = int(input())
                 sudoku = logica.forma()
                 logica.RCuadrante(sudoku,1)
                 logica.RCuadrante(sudoku,5)
