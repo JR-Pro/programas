@@ -1,37 +1,7 @@
 import logicva
 logica = logicva.cuerpo()
 class sudo():
-    def Funciones(self):
-            print("")              
-            print("FUNCIONES CARGADAS:")
-            print("")    
-            print("  CreaTablaBlanco():")
-            print("  IntroducirValoresTabla(tabla)")
-            print("  VisualizaTabla(tabla)")
-            print("  CuentaCeros(tabla)")
-            print("  RetornaMinifilas(tabla,cuadrante)")
-            print("  RetornaMinicolumnas(tabla,cuadrante)")
-            print("  RetornaCuadrante(fila,columna)")
-            print("  RetornaPosiblesVertical(tabla,fila,columna)")
-            print("  RetornaPosiblesHorizontal(tabla,fila,columna)")
-            print("  RetornaPosiblesCuadrante(tabla,fila,columna)")
-            print("  RetornaInvertidos(posibles)")
-            print("  RetornaTotalPosibles(tabla,fila,columna)")
-            print("  CompruebaTerminado(tabla)")
-            print("  RellenaInmediatos(tabla)")
-            print("  SolucionaSudoku(tabla)")
-            print("  RetornaUnoDeLaLista(lista)")
-            print("  RellenaCuadrante(tabla,cuadrante)")
-            print("  RellenaUnaCasillaCon2Posibles(tabla)")
-            print("  RellenaUnaCasillaCon3Posibles(tabla)")
-            print("  RellenaUnaCasillaCon4Posibles(tabla)")
-            print("  RellenaUnaCasillaCon5Posibles(tabla)")
-            print("  RellenaUnaCasillaCon6Posibles(tabla)")
-            print("  RellenaUnaCasillaCon7Posibles(tabla)")
-            print("  RellenaPosibilidades(tabla)")
-            print("  OcultaCeldas(tabla,\"nivel\")")
-            print("  MenuPrincipal()\n")
-
+    
     def MenuPrincipal(self):   
             print ("Bienvenido a este aplicacion creada por Luis VH 26/11/2010\n")
             print ("Desea solucionar un Sudoku? (S/N):")
