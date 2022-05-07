@@ -46,9 +46,9 @@ class sudo():
                 print ("Nivel de dificultat? (facil=0/medio=1/dificil=2):")
                 dificultad = int(input())
                 sudoku = logica.forma()
-                logica.RCuadrante(sudoku,1)
-                logica.RCuadrante(sudoku,5)
-                logica.RCuadrante(sudoku,9)
+                logica.rellenar(sudoku,1)
+                logica.rellenar(sudoku,5)
+                logica.rellenar(sudoku,9)
                 logica.RellenaPosibilidades(sudoku)
                 if dificultad=="0":
                     logica.O_Celdas(sudoku,"facil")
