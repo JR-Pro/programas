@@ -16,15 +16,15 @@ class cuerpo ():
                 disp.remove(disp[alea])
                 
     def forma(self):
-        return   [[0,0,0,0,0,0,0,0,0],
-                  [0,0,0,0,0,0,0,0,0],
-                  [0,0,0,0,0,0,0,0,0],
-                  [0,0,0,0,0,0,0,0,0],
-                  [0,0,0,0,0,0,0,0,0],
-                  [0,0,0,0,0,0,0,0,0],
-                  [0,0,0,0,0,0,0,0,0],
-                  [0,0,0,0,0,0,0,0,0],
-                  [0,0,0,0,0,0,0,0,0]]
+        return [[0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0]]
     
     def valores(self,tabla):
         filas = len(tabla)
@@ -42,14 +42,16 @@ class cuerpo ():
         filas=len(tabla)
         colum=len(tabla[0])
         for i in range(filas):
-            if i==0 or i==3 or i==6: print("- - - - - - - - - - - - -")
+            if i==0 or i==3 or i==6: 
+                print("- - - - - - - - - - - - -")
             for j in range(colum):
                 if j==0 or j==3 or j==6: 
                     print("|")
                 print(tabla[i][j])
                 if j==8: 
                     print("|")
-            if i==8: print("- - - - - - - - - - - - -")
+            if i==8: 
+                print("- - - - - - - - - - - - -")
             
     def C_Ceros(self,tabla):
         filas =len(tabla)
