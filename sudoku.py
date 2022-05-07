@@ -3,7 +3,7 @@ logica = logicva.cuerpo()
 class sudo():
     
     def MenuPrincipal(self):   
-            print ("Bienvenido a este aplicacion creada por Luis VH 26/11/2010\n")
+            print ("Bienvenido \n")
             print ("Desea solucionar un Sudoku? (S/N):")
             deseo = input()
             if deseo.lower()=='s':
