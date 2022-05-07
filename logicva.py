@@ -16,7 +16,8 @@ class cuerpo ():
                 disp.remove(disp[alea])
                 
     def forma(self):
-        return [[0,0,0,0,0,0,0,0,0],
+        return [
+            [0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0],
@@ -330,8 +331,7 @@ class cuerpo ():
                 if len(self.RetornaTotalPosibles(tabla,fila,columna))==1:
                     tabla[fila][columna]=0
                     cerosinsertados+=1
-        #VisualizaTabla(tabla)
-
+        
     def SolucionaSudoku(self,tabla):
         ceros = self.C_Ceros(tabla)
         bajando = 1
