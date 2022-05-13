@@ -31,3 +31,5 @@ class sudo():
             solucion = input()
             if solucion.lower()=='s':
                 logica.SolucionaSudoku(sudoku)
+                
+                
